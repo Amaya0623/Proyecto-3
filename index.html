@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Proyectos Access Park</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="Img/caja_android.png" alt="Logo de Access Park">
+        <h1> Gestión de Proyectos - Access Park</h1>
+        <p>Sistema integral de seguimiento y control de proyectos</p>
+    </header>
+    <section class="resumen">
+        <div class="card-resumen"><span id="totalProyectos">0</span><br>Proyectos Totales</div>
+        <div class="card-resumen"><span id="enEjecucion">0</span><br>En Ejecución</div>
+        <div class="card-resumen"><span id="completados">0</span><br>Completados</div>
+        <div class="card-resumen"><span id="atrasados">0</span><br>Atrasados</div>
+        <div class="card-resumen"><span id="finalizados">0</span><br>Finalizados</div>
+    </section>
+    <section class="acciones">
+        <button id="nuevoProyecto">+ Nuevo Proyecto</button>
+        <button id="exportarExcel">Exportar Excel</button>
+        <button id="exportarPDF">Exportar PDF</button>
+        <button id="guardarLocal">Guardar Localmente</button>
+        <button id="cargarDatos">Cargar Datos</button>
+        <button id="verFinalizados">Ver Proyectos Finalizados</button>
+        <button id="descargarFinalizados">Descargar Finalizados</button>
+    </section>
+    <main id="proyectosContainer">
+        <!-- Aquí se mostrarán los proyectos -->
+    </main>
+    <main id="finalizadosContainer" style="display:none">
+        <!-- Aquí se mostrarán los proyectos finalizados -->
+    </main>
+    <footer>
+        <div class="panel-control">
+            <input type="checkbox" checked disabled> <b>Panel de Control</b> <span>Gestiona todos tus proyectos de equipos de parqueadero desde una sola interfaz</span>
+            <a href="https://accesspark.co/" target="_blank" style="color:#fff; margin-left:1rem; text-decoration:underline;">accesspark.co</a>
+        </div>
+    </footer>
+
+    <!-- Modal para agregar/editar proyecto -->
+    <div id="modalProyecto" class="modal oculto">
+        <div class="modal-contenido">
+            <span class="cerrar" id="cerrarModal">&times;</span>
+            <h2 id="tituloModal">Nuevo Proyecto</h2>
+            <form id="formProyecto">
+                <label>Nombre del Proyecto <input type="text" id="nombreProyecto" required></label>
+                <label>Responsable <input type="text" id="responsableProyecto" required></label>
+                <label>Ejecutor <input type="text" id="ejecutorProyecto" required></label>
+                <label>Vendedor <input type="text" id="vendedorProyecto" required></label>
+                <label>Fecha de Inicio <input type="date" id="fechaInicio" required></label>
+                <label>Fecha de Entrega <input type="date" id="fechaEntrega" required></label>
+                <label>Descripción <textarea id="descripcionProyecto"></textarea></label>
+                <label>Nota <textarea id="notaProyecto"></textarea></label>
+                <label>Modificado por <input type="text" id="modificadoPor" required></label>
+                <button type="submit">Guardar Proyecto</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 

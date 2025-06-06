@@ -1,0 +1,407 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #27467a;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+header {
+    background: #fff;
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 1rem;
+}
+header h1 {
+    margin: 0;
+    color: #223c6b;
+    font-size: 2rem;
+}
+header p {
+    color: #666;
+    margin: 0.5rem 0 0 0;
+}
+.resumen {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+.card-resumen {
+    background: #f7f9fa;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    min-width: 120px;
+}
+.acciones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.acciones button {
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0 0.2rem 0.5rem 0.2rem;
+    transition: background 0.2s, color 0.2s;
+    color: #fff;
+}
+#nuevoProyecto {
+    background: #1976d2;
+}
+#nuevoProyecto:hover {
+    background: #125ea2;
+}
+#exportarExcel {
+    background: #43a047;
+}
+#exportarExcel:hover {
+    background: #2e7031;
+}
+#exportarPDF {
+    background: #fbc02d;
+    color: #222;
+}
+#exportarPDF:hover {
+    background: #b28704;
+    color: #fff;
+}
+#guardarLocal {
+    background: #0288d1;
+}
+#guardarLocal:hover {
+    background: #01579b;
+}
+#cargarDatos {
+    background: #7b1fa2;
+}
+#cargarDatos:hover {
+    background: #4a0072;
+}
+#verFinalizados {
+    background: #ff7043;
+}
+#verFinalizados:hover {
+    background: #bf360c;
+}
+#descargarFinalizados {
+    background: #00897b;
+}
+#descargarFinalizados:hover {
+    background: #004d40;
+}
+main#proyectosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    min-height: 300px;
+}
+footer {
+    margin-top: 2rem;
+    background: #223c6b;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    border-radius: 20px 20px 0 0;
+}
+.panel-control {
+    font-size: 1rem;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+.modal .modal-contenido {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    min-width: 320px;
+    max-width: 90vw;
+    position: relative;
+}
+.cerrar {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 1.5rem;
+    color: #223c6b;
+    cursor: pointer;
+}
+.modal label {
+    display: block;
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 500;
+}
+.modal input[type="text"],
+.modal input[type="date"],
+.modal textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+.modal input[type="file"] {
+    margin-bottom: 0.5rem;
+}
+.modal button[type="submit"] {
+    background: #223c6b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.modal button[type="submit"]:hover {
+    background: #1a2e4d;
+}
+
+/* Utilidades */
+.oculto {
+    display: none !important;
+}
+
+@media (max-width: 900px) {
+    .resumen, main#proyectosContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .acciones {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.proyecto-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    min-width: 340px;
+    max-width: 500px;
+    margin-bottom: 1rem;
+}
+.progreso-total {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+.donut {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+}
+.donut-bg {
+    stroke: #e0e0e0;
+}
+.donut-bar {
+    stroke: #1abc9c;
+    transition: stroke-dashoffset 0.5s;
+}
+.donut .porcentaje-total {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #223c6b;
+}
+.categorias {
+    margin-top: 1rem;
+}
+.categoria {
+    margin-bottom: 1.2rem;
+    background: #f7f9fa;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+}
+.categoria h4 {
+    margin: 0 0 0.5rem 0;
+    color: #223c6b;
+    font-size: 1.1rem;
+}
+.categoria ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.categoria li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.98rem;
+}
+.categoria li input[type="number"] {
+    border: 1px solid #b2bec3;
+    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
+    font-size: 1rem;
+}
+.categoria li input[type="text"] {
+    border: 1px solid #b2bec3;
+    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.95rem;
+}
+.fotos-proyecto {
+    display: flex;
+    gap: 0.7rem;
+    margin-bottom: 0.7rem;
+}
+.foto-miniatura {
+    position: relative;
+    display: inline-block;
+}
+.foto-miniatura img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+.eliminar-foto {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    z-index: 2;
+}
+.eliminar-foto:hover {
+    background: #c0392b;
+}
+.alerta {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+    text-align: center;
+    font-size: 1rem;
+}
+.alerta-roja {
+    background: #ffdddd;
+    color: #c0392b;
+    border: 1px solid #e74c3c;
+}
+.alerta-amarilla {
+    background: #fffbe6;
+    color: #b8860b;
+    border: 1px solid #f1c40f;
+}
+.acciones-proyecto {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1rem;
+}
+.btn-editar, .btn-eliminar {
+    background: #223c6b;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 1.1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-editar:hover {
+    background: #1abc9c;
+}
+.btn-eliminar {
+    background: #e74c3c;
+}
+.btn-eliminar:hover {
+    background: #c0392b;
+}
+.btn-foto {
+    background: #f7f9fa;
+    color: #223c6b;
+    border: 1px solid #b2bec3;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 0.2rem;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.btn-foto:hover {
+    background: #eaf6f6;
+    color: #1abc9c;
+}
+.btn-foto input[type="file"] {
+    display: none;
+}
+.btn-eliminar-finalizado {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 1.1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.2s;
+}
+.btn-eliminar-finalizado:hover {
+    background: #c0392b;
+}
+.categoria-acordeon {
+    margin-bottom: 1.2rem;
+    background: #f7f9fa;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+}
+.acordeon-header {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #223c6b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    padding: 0.2rem 0;
+}
+.acordeon-icon {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+}
+.acordeon-body {
+    transition: all 0.3s;
+    margin-top: 0.5rem;
+} 
