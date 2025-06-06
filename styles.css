@@ -107,7 +107,7 @@ main#proyectosContainer {
 }
 footer {
     margin-top: 2rem;
-    background: #223c6b;
+    background: #466091;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
@@ -239,7 +239,7 @@ footer {
 }
 .categoria h4 {
     margin: 0 0 0.5rem 0;
-    color: #223c6b;
+    color: #c1c8d4;
     font-size: 1.1rem;
 }
 .categoria ul {
@@ -405,3 +405,8 @@ footer {
     transition: all 0.3s;
     margin-top: 0.5rem;
 } 
+#formProyecto {
+    max-height: 80vh; /* Ajusta según sea necesario */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+    scroll-behavior: smooth; /* Desplazamiento suave */
+}
